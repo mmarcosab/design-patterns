@@ -1,6 +1,6 @@
-package com.example.designpatterns.strategy;
+package com.example.designpatterns.chain;
 
-import com.example.designpatterns.chain.CalculadoraDesconto;
+import com.example.designpatterns.strategy.Orcamento;
 
 import java.math.BigDecimal;
 
