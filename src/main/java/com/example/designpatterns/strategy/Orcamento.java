@@ -1,6 +1,7 @@
 package com.example.designpatterns.strategy;
 
 import com.example.designpatterns.state.EmAnalise;
+import com.example.designpatterns.state.Finalizado;
 import com.example.designpatterns.state.Situacao;
 
 import java.math.BigDecimal;
@@ -50,6 +51,9 @@ public class Orcamento {
         this.situacao = new EmAnalise();
     }
 
+    public boolean isFinalizado(){
+        return situacao instanceof Finalizado;
+    }
 
 }
 
