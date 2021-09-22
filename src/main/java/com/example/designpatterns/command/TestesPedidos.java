@@ -2,6 +2,8 @@ package com.example.designpatterns.command;
 
 import com.example.designpatterns.observer.ArmazenarPedido;
 import com.example.designpatterns.observer.EnviarEmail;
+import com.example.designpatterns.observer.LogPedido;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 
@@ -19,8 +21,10 @@ public class TestesPedidos {
 
         //aqui eu defino os interessados
         //injeto as dependencias ali em cima e chamo aqui
-        CommandHandler handler = new CommandHandler(Arrays.asList(new ArmazenarPedido(), new EnviarEmail()));
+        CommandHandler handler = new CommandHandler(Arrays.asList(new ArmazenarPedido(), new EnviarEmail(), new LogPedido()));
 
+        //esse metodo esta funcionando como uma fachada de uso, pois toda a complexidade esta abstraida
+        //
         handler.execute(geraPedido);
         //nota: aqui abrimos mão um pouco dos conceitos de juntar dados e comportamentos em prol de uma melhor
         // organizacao do projeto. esse eh o caso do handler

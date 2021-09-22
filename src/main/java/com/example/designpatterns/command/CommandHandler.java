@@ -22,8 +22,6 @@ public class CommandHandler {
 
         acoes.forEach(a -> a.executar(pedido));
 
-        System.out.println("salvar pedido");
-        System.out.println("enviar email");
     }
 
 }

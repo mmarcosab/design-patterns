@@ -1,24 +1,24 @@
-package com.example.designpatterns.strategy;
+package com.example.designpatterns.composite;
 
 import com.example.designpatterns.state.EmAnalise;
 import com.example.designpatterns.state.Finalizado;
 import com.example.designpatterns.state.Situacao;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Orcamento {
+public class Orcamento extends com.example.designpatterns.strategy.Orcamento implements Orcavel {
 
     private BigDecimal valor;
     private Integer quantidadeItens;
     private Situacao situacao;
+    private List<Orcavel> itens;
 
-    public Orcamento(BigDecimal valor, Integer quantidadeItens) {
+    public Orcamento(BigDecimal valor) {
         this.analisar();
         this.valor = valor;
-        this.quantidadeItens = quantidadeItens;
-    }
-
-    public Orcamento() {
+        this.itens = new ArrayList<>();
     }
 
     public BigDecimal getValor() {
@@ -26,7 +26,7 @@ public class Orcamento {
     }
 
     public Integer getQuantidadeItens() {
-        return quantidadeItens;
+        return itens.size();
     }
 
     public void setSituacao(Situacao situacao) {
@@ -56,6 +56,11 @@ public class Orcamento {
 
     public boolean isFinalizado(){
         return situacao instanceof Finalizado;
+    }
+
+    public void addItem(Orcavel item){
+        this.valor = valor.add(item.getValor());
+        this.itens.add(item);
     }
 
 }
